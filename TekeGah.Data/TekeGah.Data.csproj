@@ -20,6 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\TekeGah.Application\TekeGah.Application.csproj" />
       <ProjectReference Include="..\TekeGah.Domain\TekeGah.Domain.csproj" />
     </ItemGroup>
 

@@ -52,6 +52,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         try
         {
             await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
             return await Task.FromResult(true);
         }
         catch (Exception)
@@ -65,6 +66,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         try
         {
             _context.Entry(typeof(TEntity)).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
             return await Task.FromResult(true);
         }
         catch (Exception)

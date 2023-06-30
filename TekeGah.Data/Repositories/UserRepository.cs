@@ -24,4 +24,14 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         return await _userRepository.IsExistAsync(s => s.Email == email);
     }
+
+    public async Task<User?> GetUserByMobile(string mobile)
+    {
+        return await _userRepository.GetAsync(s => s.Mobile == mobile);
+    }
+
+    public async Task<bool> IsExistUserByMobile(string mobile)
+    {
+        return await _userRepository.IsExistAsync(s => s.Mobile == mobile);
+    }
 }
